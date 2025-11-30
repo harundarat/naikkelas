@@ -22,6 +22,13 @@
       "when": 1764411357732,
       "tag": "0002_wealthy_gladiator",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1764478701468,
+      "tag": "0003_watery_mariko_yashida",
+      "breakpoints": true
     }
   ]
 }

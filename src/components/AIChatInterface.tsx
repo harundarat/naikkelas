@@ -36,6 +36,8 @@ import TypingMessage from "./TypingMessage"; // Import TypingMessage
 import MediaLibrary from "./MediaLibrary"; // Import MediaLibrary
 import CreditsDisplay from "./CreditsDisplay"; // Import CreditsDisplay
 import TopupSheet from "./TopupSheet"; // Import TopupSheet
+import RewardsDisplay from "./RewardsDisplay"; // Import RewardsDisplay
+import ReferralSheet from "./ReferralSheet"; // Import ReferralSheet
 
 const navItems = [
   { icon: Compass, label: "Explore" },
@@ -83,6 +85,9 @@ export default function AIChatInterface() {
   const [credits, setCredits] = useState<number>(0);
   const [isCreditsLoading, setIsCreditsLoading] = useState(true);
   const [isTopupOpen, setIsTopupOpen] = useState(false);
+  const [rewardBalance, setRewardBalance] = useState<number>(0);
+  const [isRewardsLoading, setIsRewardsLoading] = useState(true);
+  const [isReferralOpen, setIsReferralOpen] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
   const supabase = createClientSupabaseClient();
@@ -194,10 +199,26 @@ export default function AIChatInterface() {
     }
   };
 
-  // Fetch credits when session changes
+  const fetchRewards = async () => {
+    try {
+      setIsRewardsLoading(true);
+      const response = await fetch('/api/rewards');
+      if (response.ok) {
+        const data = await response.json();
+        setRewardBalance(data.balance);
+      }
+    } catch (error) {
+      console.error('Error fetching rewards:', error);
+    } finally {
+      setIsRewardsLoading(false);
+    }
+  };
+
+  // Fetch credits and rewards when session changes
   useEffect(() => {
     if (session) {
       fetchCredits();
+      fetchRewards();
     }
   }, [session]);
 
@@ -517,6 +538,11 @@ export default function AIChatInterface() {
         onClose={() => setIsTopupOpen(false)}
         currentCredits={credits}
       />
+      <ReferralSheet
+        isOpen={isReferralOpen}
+        onClose={() => setIsReferralOpen(false)}
+        rewardBalance={rewardBalance}
+      />
       {/* Left Sidebar */}
       <aside
         className={`fixed inset-y-0 left-0 h-full w-64 border-r border-gray-200/50 bg-white/60 backdrop-blur-xl flex flex-col transition-transform duration-300 ease-in-out z-60 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
@@ -600,13 +626,18 @@ export default function AIChatInterface() {
           </nav>
         </div>
 
-        {/* Credits Display */}
+        {/* Credits & Rewards Display */}
         {session && (
-          <div className="px-3 pb-2">
+          <div className="px-3 pb-2 space-y-2">
             <CreditsDisplay
               credits={credits}
               isLoading={isCreditsLoading}
               onTopupClick={() => setIsTopupOpen(true)}
+            />
+            <RewardsDisplay
+              balance={rewardBalance}
+              isLoading={isRewardsLoading}
+              onClick={() => setIsReferralOpen(true)}
             />
           </div>
         )}

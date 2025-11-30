@@ -1,7 +1,7 @@
 'use client';
 
 import { createClientSupabaseClient } from '@/lib/supabase-client';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Session } from '@supabase/supabase-js';
 import Image from 'next/image';
@@ -10,7 +10,17 @@ export default function AuthButton() {
   const [session, setSession] = useState<Session | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+  const searchParams = useSearchParams();
   const supabase = createClientSupabaseClient();
+
+  // Capture referral code from URL and store in cookie
+  useEffect(() => {
+    const refCode = searchParams.get('ref');
+    if (refCode) {
+      // Store in cookie for 24 hours
+      document.cookie = `referral_code=${refCode}; path=/; max-age=86400; SameSite=Lax`;
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const getSession = async () => {

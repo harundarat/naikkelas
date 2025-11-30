@@ -63,3 +63,38 @@ export const topupTransactions = pgTable('topup_transactions', {
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
+
+// Referral System Tables
+
+export const referralCodes = pgTable('referral_codes', {
+  id: text('id').primaryKey().notNull(),
+  userId: text('user_id').notNull().references(() => users.id).unique(),
+  code: text('code').notNull().unique(), // e.g., "REF_abc123"
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+});
+
+export const referrals = pgTable('referrals', {
+  id: text('id').primaryKey().notNull(),
+  referredUserId: text('referred_user_id').notNull().references(() => users.id).unique(),
+  referrerLevel1Id: text('referrer_level1_id').notNull().references(() => users.id),
+  referrerLevel2Id: text('referrer_level2_id').references(() => users.id), // nullable
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+});
+
+export const userRewards = pgTable('user_rewards', {
+  id: text('id').primaryKey().notNull(),
+  userId: text('user_id').notNull().references(() => users.id).unique(),
+  balance: integer('balance').notNull().default(0), // in IDR
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});
+
+export const rewardTransactions = pgTable('reward_transactions', {
+  id: text('id').primaryKey().notNull(),
+  userId: text('user_id').notNull().references(() => users.id),
+  amount: integer('amount').notNull(), // positive = credit, negative = debit
+  type: text('type').notNull(), // 'REFERRAL_LEVEL1', 'REFERRAL_LEVEL2', 'REDEMPTION'
+  referralId: text('referral_id').references(() => referrals.id), // nullable, links to referral
+  description: text('description'),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+});
