@@ -14,7 +14,7 @@ export async function GET() {
 
     const code = await getOrCreateReferralCode(user.id);
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
-    const referralLink = `${siteUrl}?ref=${code}`;
+    const referralLink = `${siteUrl}/login?ref=${code}`;
 
     return NextResponse.json({
       code,
