@@ -15,7 +15,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 });
     }
 
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" }); // Using a fast model for intent detection
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" }); // Using a fast model for intent detection
 
     const prompt = `Analyze the following user message and determine if the primary intent is 'text', 'image_generation', or 'video_generation'. Respond with only one of those three words.
 

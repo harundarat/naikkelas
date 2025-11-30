@@ -22,7 +22,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ summarizedPrompt });
     }
 
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
 
     const textHistory = history.map(item => `${item.role}: ${item.parts.map((p: any) => p.text).join(' ')}`).join('\n');
 
