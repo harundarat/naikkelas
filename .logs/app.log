@@ -1,0 +1,33 @@
+{"timestamp":"2025-11-29T05:59:46.432Z","level":"INFO","message":"Intent detection request received"}
+{"timestamp":"2025-11-29T05:59:49.300Z","level":"INFO","message":"Intent detected successfully","details":{"message":"halo","intent":"text"}}
+{"timestamp":"2025-11-29T05:59:49.446Z","level":"INFO","message":"Chat request received"}
+{"timestamp":"2025-11-29T05:59:49.693Z","level":"INFO","message":"Creating new chat for user","details":{"userId":"ad7a92e5-6ca7-409e-8d4a-0a3dd00126fe"}}
+{"timestamp":"2025-11-29T05:59:49.833Z","level":"INFO","message":"New chat created successfully","details":{"chatId":"chat_1764395989694"}}
+{"timestamp":"2025-11-29T05:59:49.974Z","level":"INFO","message":"User message saved to DB","details":{"chatId":"chat_1764395989694","userId":"ad7a92e5-6ca7-409e-8d4a-0a3dd00126fe"}}
+{"timestamp":"2025-11-29T05:59:49.979Z","level":"INFO","message":"Generating persistent AI text response..."}
+{"timestamp":"2025-11-29T05:59:51.347Z","level":"INFO","message":"Attempting to save AI text response to DB...","details":{"chatId":"chat_1764395989694"}}
+{"timestamp":"2025-11-29T05:59:51.482Z","level":"INFO","message":"AI text response saved successfully","details":{"chatId":"chat_1764395989694"}}
+{"timestamp":"2025-11-29T06:00:28.319Z","level":"INFO","message":"Intent detection request received"}
+{"timestamp":"2025-11-29T06:00:30.567Z","level":"INFO","message":"Intent detected successfully","details":{"message":"apakah berdiri saat ngoding bisa bermanfaat?","intent":"text"}}
+{"timestamp":"2025-11-29T06:00:30.683Z","level":"INFO","message":"Chat request received"}
+{"timestamp":"2025-11-29T06:00:31.063Z","level":"INFO","message":"Using existing chat","details":{"chatId":"chat_1764395989694"}}
+{"timestamp":"2025-11-29T06:00:31.204Z","level":"INFO","message":"User message saved to DB","details":{"chatId":"chat_1764395989694","userId":"ad7a92e5-6ca7-409e-8d4a-0a3dd00126fe"}}
+{"timestamp":"2025-11-29T06:00:31.205Z","level":"INFO","message":"Generating persistent AI text response..."}
+{"timestamp":"2025-11-29T06:00:43.150Z","level":"INFO","message":"Attempting to save AI text response to DB...","details":{"chatId":"chat_1764395989694"}}
+{"timestamp":"2025-11-29T06:00:43.319Z","level":"INFO","message":"AI text response saved successfully","details":{"chatId":"chat_1764395989694"}}
+{"timestamp":"2025-11-29T06:01:56.973Z","level":"INFO","message":"Intent detection request received"}
+{"timestamp":"2025-11-29T06:01:59.465Z","level":"INFO","message":"Intent detected successfully","details":{"message":"bagaimana jika saya berdiri lama tanpa duduk karena saya terbiasa berdiri, apakah itu buruk?","intent":"text"}}
+{"timestamp":"2025-11-29T06:01:59.594Z","level":"INFO","message":"Chat request received"}
+{"timestamp":"2025-11-29T06:01:59.999Z","level":"INFO","message":"Using existing chat","details":{"chatId":"chat_1764395989694"}}
+{"timestamp":"2025-11-29T06:02:00.140Z","level":"INFO","message":"User message saved to DB","details":{"chatId":"chat_1764395989694","userId":"ad7a92e5-6ca7-409e-8d4a-0a3dd00126fe"}}
+{"timestamp":"2025-11-29T06:02:00.141Z","level":"INFO","message":"Generating persistent AI text response..."}
+{"timestamp":"2025-11-29T06:02:04.568Z","level":"INFO","message":"Attempting to save AI text response to DB...","details":{"chatId":"chat_1764395989694"}}
+{"timestamp":"2025-11-29T06:02:04.699Z","level":"INFO","message":"AI text response saved successfully","details":{"chatId":"chat_1764395989694"}}
+{"timestamp":"2025-11-29T06:03:21.361Z","level":"INFO","message":"Intent detection request received"}
+{"timestamp":"2025-11-29T06:03:24.350Z","level":"INFO","message":"Intent detected successfully","details":{"message":"berapa lama waktu yang sehat untuk ngoding? berapa batas berlebihannya?","intent":"text"}}
+{"timestamp":"2025-11-29T06:03:24.487Z","level":"INFO","message":"Chat request received"}
+{"timestamp":"2025-11-29T06:03:24.853Z","level":"WARN","message":"User has no credits remaining","details":{"userId":"ad7a92e5-6ca7-409e-8d4a-0a3dd00126fe"}}
+{"timestamp":"2025-11-29T06:03:43.078Z","level":"INFO","message":"Intent detection request received"}
+{"timestamp":"2025-11-29T06:03:45.448Z","level":"INFO","message":"Intent detected successfully","details":{"message":"HELLO","intent":"text"}}
+{"timestamp":"2025-11-29T06:03:45.572Z","level":"INFO","message":"Chat request received"}
+{"timestamp":"2025-11-29T06:03:45.814Z","level":"WARN","message":"User has no credits remaining","details":{"userId":"ad7a92e5-6ca7-409e-8d4a-0a3dd00126fe"}}
