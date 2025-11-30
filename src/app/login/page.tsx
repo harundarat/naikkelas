@@ -1,11 +1,15 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import AuthButton from '@/components/AuthButton';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: "Login - Naikkelas",
   description: "Sign in to Naikkelas",
 };
+
+function AuthButtonFallback() {
+  return <div className="h-10 w-full rounded-md bg-gray-200 animate-pulse" />;
+}
 
 export default function LoginPage() {
   return (
@@ -31,7 +35,9 @@ export default function LoginPage() {
             </p>
           </div>
           <div className="pt-4">
-            <AuthButton />
+            <Suspense fallback={<AuthButtonFallback />}>
+              <AuthButton />
+            </Suspense>
           </div>
         </div>
       </div>
